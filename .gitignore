@@ -1,0 +1,7 @@
+*.swp
+*.swo
+*.pyc
+
+/db.sqlite3
+/static
+

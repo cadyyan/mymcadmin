@@ -1,0 +1,51 @@
+{% extends 'page_wrapper.html' %}
+
+{% block title %}MyMCAdmin{% endblock %}
+
+{% load breadcrumbs %}
+{% load staticfiles %}
+
+<!-- TODO: set favicon -->
+
+{% block page_styles %}
+	<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+
+	{% block styles %}
+	{% endblock %}
+{% endblock %}
+
+{% block page %}
+	<nav class="ynot-header">
+		<div class="breadcrumbs">
+		{% block breadcrumbs %}
+			{% breadcrumb_url 'MyMCAdmin' 'root' %}
+		{% endblock %}
+		</div>
+		<div class="user">
+			<span>{{ user.username|title }}</span>
+			<a href="{% url 'logout' %}">(logout)</a>
+		</div>
+	</nav>
+
+	{% block content %}
+	{% endblock %}
+
+	<footer>
+		<ul>
+			<li>
+				<a href="https://github.com/cadyyan/mymcadmin">Source</a>
+			</li>
+		</ul>
+	</footer>
+{% endblock  %}
+
+{% block page_scripts %}
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		window.jQuery || document.write('<script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"><' + '/script>')
+	</script>
+
+	{% block scripts %}
+	{% endblock %}
+{% endblock %}
+
